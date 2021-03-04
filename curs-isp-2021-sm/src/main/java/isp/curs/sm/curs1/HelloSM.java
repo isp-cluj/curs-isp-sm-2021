@@ -6,7 +6,7 @@
 package isp.curs.sm.curs1;
 
 /**
- *
+ * Test commit.
  * @author mihai.huleal
  */
 public class HelloSM {
