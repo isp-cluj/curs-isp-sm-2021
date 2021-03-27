@@ -28,6 +28,28 @@ public class Sensor {
 //        Sensor s = (Sensor)o; ///conversie de tip
 //        return s.getX() == x;
 //    }
+
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Sensor other = (Sensor) obj;
+        if (this.x != other.x) {
+            return false;
+        }
+        return true;
+    }
+    
+    
     
     public static void main(String[] args) {
         Sensor s1 = new Sensor(10);
