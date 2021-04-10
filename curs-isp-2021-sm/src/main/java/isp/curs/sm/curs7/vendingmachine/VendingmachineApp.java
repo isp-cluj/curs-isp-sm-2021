@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 public class VendingmachineApp {
     public static void main(String[] args) {
         System.out.println("It works!");
-
+        System.err.println("It workd!"); //ERR NU ARE BUFFER INTERMEDIAR
         VendingMachine vm = new VendingMachine();
         
         vm.displayProducts();
@@ -29,7 +29,7 @@ public class VendingmachineApp {
         } catch (InsuficientCreditException ex) {
             System.out.println("Credit insuficient.");
         }finally{
-            System.out.println("SE XECUTA TO TIMPUL INDIFERENT DE MODUL DE FINALIZARE A BLOCULUI TRY");
+            System.out.println("SE EXECUTA TO TIMPUL INDIFERENT DE MODUL DE FINALIZARE A BLOCULUI TRY");
         }
         
         System.out.println("..."); 
