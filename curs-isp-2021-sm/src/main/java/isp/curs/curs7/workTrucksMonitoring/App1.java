@@ -21,27 +21,27 @@ public class App1 {
         TruckFileJsonRepository repo = new TruckFileJsonRepository("c:\\satu-mare");
         TrackingVehicleService serv = new TrackingVehicleService(repo);
         
-        serv.addNewTruckRecord(46.770439, 23.591423, "CJ-01-ABC");
-        serv.addNewTruckRecord(46.06667, 23.58333, "CJ-01-ABC");
-        serv.addNewTruckRecord(46.5531,24.5984, "CJ-01-ABC");
-        
-        serv.addNewTruckRecord(46.06667, 23.58333, "CJ-99-GTT");
-        serv.addNewTruckRecord(46.5531,24.5984, "CJ-99-GTT");
-////        
+//        serv.addNewTruckRecord(46.770439, 23.591423, "CJ-01-ABC");
+//        serv.addNewTruckRecord(46.06667, 23.58333, "CJ-01-ABC");
+//        serv.addNewTruckRecord(46.5531,24.5984, "CJ-01-ABC");
 //        
-//        serv.getAllUnique().stream().forEach(s -> System.out.println(s));
-//        System.out.println("....");
-//        serv.getALlRecordsByTruck("CJ-01-ABC").stream().forEach(System.out::println); //using method reference
-////
+//        serv.addNewTruckRecord(46.06667, 23.58333, "CJ-99-GTT");
+//        serv.addNewTruckRecord(46.5531,24.5984, "CJ-99-GTT");
+//        
+        
+        serv.getAllUnique().stream().forEach(s -> System.out.println(s));
+        System.out.println("....");
+        serv.getALlRecordsByTruck("CJ-01-ABC").stream().forEach(System.out::println); //using method reference
 //
 //
-//        MapViewerJFrame viewer = new MapViewerJFrame();
-//        List<GeoPosition> locations = 
-//                serv.getALlRecordsByTruck("CJ-01-ABC").stream()
-//                        .map(truck -> new GeoPosition(truck.getLatitude(),truck.getLongitudel()))
-//                        .collect(toList());
-//                
-//        viewer.updateRoute(locations);
-//        viewer.setVisible(true);
+//
+        MapViewerJFrame viewer = new MapViewerJFrame();
+        List<GeoPosition> locations = 
+                serv.getALlRecordsByTruck("CJ-01-ABC").stream()
+                        .map(truck -> new GeoPosition(truck.getLatitude(),truck.getLongitudel()))
+                        .collect(toList());
+                
+        viewer.updateRoute(locations);
+        viewer.setVisible(true);
     }
 }
