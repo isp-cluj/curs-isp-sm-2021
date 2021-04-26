@@ -7,6 +7,8 @@ package isp.lab7.safehome;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 /**
  *
@@ -36,7 +38,37 @@ public class DoorLockController implements ControllerInterface{
 
     @Override
     public void removeTenant(String name) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        AccessKey k = getKey(validAccess, new Tenant(name));
+       // AccessKey k2 = findKey(new Tenant(name));
+       
+//       AccessKey k3 = validAccess
+//        .entrySet()
+//        .stream()
+//        .filter(entry -> entry.equals(new Tenant(name)))
+//        .map(Map.Entry::getKey);
+       
+        if(k!=null){
+            validAccess.remove(k);
+        }
+    }
+    
+    private AccessKey findKey(Tenant t){
+        Set<AccessKey> list = validAccess.keySet();
+        for(AccessKey k: list){
+            if(validAccess.containsKey(k)){
+                return k;
+            }
+        }
+        return null;
+    }
+
+    private <K, V> K getKey(Map<K, V> map, V value) {
+        for (Entry<K, V> entry : map.entrySet()) {
+            if (entry.getValue().equals(value)) {
+                return entry.getKey();
+            }
+        }
+        return null;
     }
     
 }

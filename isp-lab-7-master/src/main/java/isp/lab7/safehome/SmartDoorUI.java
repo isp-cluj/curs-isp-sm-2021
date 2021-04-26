@@ -5,6 +5,7 @@
  */
 package isp.lab7.safehome;
 
+import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -22,11 +23,13 @@ public class SmartDoorUI extends javax.swing.JFrame {
      */
     public SmartDoorUI() {
         initComponents();
+        lblDoor.setOpaque(true);
     }
 
     public SmartDoorUI(DoorLockController ctrl) {
         this.doorLock = ctrl;
         initComponents();
+        lblDoor.setOpaque(true);
     }
 
     /**
@@ -55,6 +58,7 @@ public class SmartDoorUI extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        lblDoor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -200,6 +204,10 @@ public class SmartDoorUI extends javax.swing.JFrame {
                 .addComponent(jButton7))
         );
 
+        lblDoor.setBackground(new java.awt.Color(255, 51, 51));
+        lblDoor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDoor.setText("DOOR");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -209,14 +217,22 @@ public class SmartDoorUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addComponent(lblDoor, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(lblDoor, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -269,6 +285,7 @@ public class SmartDoorUI extends javax.swing.JFrame {
     private void buttonAccessDoorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAccessDoorActionPerformed
         currentPin = "";
         txtCurrentPin.setText("");
+        lblDoor.setBackground(Color.GREEN);
     }//GEN-LAST:event_buttonAccessDoorActionPerformed
 
     /**
@@ -319,6 +336,7 @@ public class SmartDoorUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblDoor;
     private javax.swing.JTextField txtCurrentPin;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPin;
